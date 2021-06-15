@@ -1,0 +1,108 @@
+<div class="small-container">
+  <!-- Latest products  -->
+  <h2 class="title">Latest products</h2>
+  <section class="row">
+    <% for( let product of products ) { %>
+    <a class="col-4" href="/bags/<%= product._id %>">
+      <div>
+        <img src="<%= product.imgSrc %> " alt="product 1" />
+        <h4><%= product.name %></h4>
+
+        <div class="ratings">
+          <!-- font awesome star ratings -->
+        </div>
+        <p><%= product.price %>.00</p>
+      </div>
+    </a>
+    <% } %>
+    <!-- end of one product -->
+  </section>
+  <!-- End of latest products  -->
+</div>
+<!-- end of featured products -->
+<!-- offer  -->
+<section class="offer">
+  <div class="small-container">
+    <section class="row">
+      <div class="col-2">
+        <img src="images/bag1.png" alt="" class="offer-img" />
+      </div>
+      <div class="col-2">
+        <p>Exclusively Availabe at RoBags</p>
+        <h1>NICE BAG</h1>
+        <small
+          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos ut
+          iusto ipsa! Consectetur, pariatur. Dolorum.</small
+        >
+        <a href="" class="btn">Buy Now &#8594;</a>
+      </div>
+    </section>
+  </div>
+</section>
+<!-- end of offer  -->
+<section class="testimonial">
+  <div class="small-container">
+    <div class="row">
+      <!-- person's testimonial -->
+      <div class="col-3">
+        <p>
+          <span class="quotes">&#8220;</span>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+          possimus deserunt ratione veniam minima ipsa.
+        </p>
+        <div class="ratings">
+          <!-- font awesome star icons  -->
+        </div>
+        <img src="images/user-1.png" alt="" />
+        <h3>Sean Parker</h3>
+      </div>
+      <!-- end of person's testimonial -->
+      <div class="col-3">
+        <p>
+          <span class="quotes">&#8220;</span>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+          possimus deserunt ratione veniam minima ipsa.
+        </p>
+        <div class="ratings">
+          <!-- font awesome star icons  -->
+        </div>
+        <img src="images/user-2.png" alt="" />
+        <h3>Kofi Swimmer</h3>
+      </div>
+      <div class="col-3">
+        <p>
+          <span class="quotes">&#8220;</span>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+          possimus deseruntratione veniam minima ipsa.
+        </p>
+        <div class="ratings">
+          <!-- font awesome star icons  -->
+        </div>
+        <img src="images/user-3.png" alt="" />
+        <h3>Ro Boy</h3>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- brands  eg.LV YSL etc-->
+<section class="brands">
+  <div class="small-container">
+    <div class="row">
+      <div class="col-5">
+        <img src="images/logo-godrej.png" alt="" />
+      </div>
+      <div class="col-5">
+        <img src="images/logo-oppo.png" alt="" />
+      </div>
+      <div class="col-5">
+        <img src="images/logo-coca-cola.png" alt="" />
+      </div>
+      <div class="col-5">
+        <img src="images/logo-paypal.png" alt="" />
+      </div>
+      <div class="col-5">
+        <img src="images/logo-philips.png" alt="" />
+      </div>
+    </div>
+  </div>
+</section>

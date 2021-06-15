@@ -1,0 +1,36 @@
+<section class="small-container single-product">
+  <div class="row">
+    <div class="col-2">
+      <img src="<%= product.imgSrc %> " alt="" width="100%" class="pro-img" />
+      <div class="small-img-row">
+        <!-- <div class="small-img-column">
+          <img src="" alt="" />
+        </div>
+       -->
+      </div>
+    </div>
+    <div class="col-2">
+      <p><%= product.type %></p>
+      <h1 class="name"><%= product.name %></h1>
+      <h4 class="price">$<%= product.price %>.00</h4>
+      <% if (product.added ===true) { %>
+      <input
+        type="number"
+        value="<%= product.quantity %>"
+        class="quantity"
+        disabled
+      />
+      <button id="0" class="added btn addBag" disabled>Added To Cart</button>
+
+      <% } else {%>
+      <input type="number" value="<%= product.quantity %>" class="quantity" />
+      <button id="<%= product._id %> " class="btn addBag">Add To Cart</button>
+
+      <% } %>
+
+      <h3>Product Details <i class="fa fa-indent"></i></h3>
+      <br />
+      <p><%= product.details %></p>
+    </div>
+  </div>
+</section>

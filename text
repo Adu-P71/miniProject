@@ -1,0 +1,76 @@
+DATA MODEL 
+products table
+single product
+product = {
+    "_id": {
+        "$oid": "5ff36a208b1d2c3660e592b6"
+    },
+    "my_id": 1,
+    "type": "Bags",
+    "name": "pearl",
+    "imgSrc": "/images/pro-1.jpg",
+    "price": "50.00",
+    "added": true,
+    "quantity": 1,
+    "details": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum namratione quae, sed repellat temporibus ipsam similique ",
+    "smallerImgSrc": ["/images/pro-1.jpg", "/images/pro-3.jpg", "/images/pro-4.jpg"],
+    "latest": true,
+    "brand": "LV"
+}
+
+
+
+
+
+const products = [
+  {
+    my_id: 1,
+    type: "Bags",
+    name: "pearl",
+    imgSrc: "/images/pro-1.jpg",
+    price: "50.00",
+    added: false,
+    quantity: 1,
+    details:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum namratione quae, sed repellat temporibus ipsam similique ",
+    smallerImgSrc: [
+      "/images/pro-1.jpg",
+      "/images/pro-2.jpg",
+      "/images/pro-3.jpg",
+    ],
+  },
+  {
+    my_id: 2,
+    type: "Bags",
+    name: "bright",
+    imgSrc: "/images/pro-3.jpg",
+    price: "50.00",
+    added: false,
+    quantity: 1,
+    details:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum namratione quae, sed repellat temporibus ipsam similique ",
+    smallerImgSrc: [
+      "/images/pro-3.jpg",
+      "/images/pro-4.jpg",
+      "/images/pro-5.jpg",
+    ],
+  },
+  {
+    my_id: 3,
+    type: "Bags",
+    name: "swimmer",
+    imgSrc: "/images/pro-4.jpg",
+    price: "50.00",
+    added: false,
+    quantity: 1,
+    details:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum namratione quae, sed repellat temporibus ipsam similique ",
+    smallerImgSrc: [
+      "/images/pro-4.jpg",
+      "/images/pro-5.jpg",
+      "/images/pro-6.jpg",
+    ],
+  },
+]
+
+

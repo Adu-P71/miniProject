@@ -6,7 +6,7 @@ const {
   updateCart,
   deleteFromCart,
   checkOut,
-} = require("../controller/cartController")
+} = require("../controllers/cartController")
 
 router.get("/", getPage)
 

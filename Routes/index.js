@@ -1,7 +1,7 @@
 const { Router } = require("express")
 const router = Router()
 
-const { getPage } = require("../controller/indexController")
+const { getPage } = require("../controllers/indexController")
 
 router.get("/", getPage)
 

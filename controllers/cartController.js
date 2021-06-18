@@ -1,4 +1,4 @@
-const Checkout = require("../model/checkout.model")
+const Checkout = require("../models/checkout.model")
 function updateValues(req) {
   const { products } = req.session
   const { quantity } = req.body

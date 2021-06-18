@@ -24,5 +24,7 @@ app.use("/", require("./Routes/index"))
 app.use("/bags", require("./Routes/oneProduct"))
 app.use("/allProducts", require("./Routes/allProducts"))
 app.use("/cart", require("./Routes/cart"))
+app.use("/auth/signUp", require("./Routes/signup"))
+app.use("/auth/login", require("./Routes/login"))
 
 app.listen(PORT, console.log(`Server is running on port : ${PORT}`))

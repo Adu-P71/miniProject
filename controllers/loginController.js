@@ -1,7 +1,6 @@
 const User = require("../models/users.model")
 
 const handleError = (err) => {
-  console.log(err.message, err.code)
   let errors = { email: "", password: "" }
 
   //incorrect email
@@ -15,11 +14,27 @@ const handleError = (err) => {
   return errors
 }
 
+const makeUser = (user) => {
+  const User = {
+    _id: user._id,
+    email: user.email,
+    telephone: user.telephone,
+  }
+  return User
+}
+const getLogin = (req, res, next) => {
+  res.render("loginPage", {
+    layout: "../views/loginPage",
+  })
+}
 const postHandler = async (req, res, next) => {
   const { email, password } = req.body
 
   try {
     const user = await User.login(email, password)
+    const USER = makeUser(user)
+    req.session.user = USER
+
     res.status(200).json({ user })
   } catch (err) {
     const errors = handleError(err)
@@ -28,4 +43,5 @@ const postHandler = async (req, res, next) => {
 }
 module.exports = {
   postHandler,
+  getLogin,
 }

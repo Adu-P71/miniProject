@@ -1,8 +1,12 @@
 const { Router } = require("express")
 const router = Router()
 
-const loginController = require("../controllers/loginController")
+const { postHandler, getLogin } = require("../controllers/loginController")
 
-router.post("/", loginController.postHandler)
+const { loggedIn } = require("../middleware/authMiddleware")
+
+router.get("/", loggedIn, getLogin)
+
+router.post("/", postHandler)
 
 module.exports = router

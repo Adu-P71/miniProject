@@ -20,7 +20,13 @@
               <li><a href="/">Home</a></li>
               <li><a href="/allProducts">Products</a></li>
               <li><a href="/">Contact</a></li>
-              <li><a href="/">Account</a></li>
+              <% if (user) { %>
+              <li><a href="/logout">Logout</a></li>
+              <% } else { %>
+              <li><a href="/signUp">SignUp</a></li>
+              <li><a href="/login">Login</a></li>
+
+              <% } %>
             </ul>
           </nav>
           <a href="/cart">

@@ -1,4 +1,16 @@
 const Checkout = require("../models/checkout.model")
+const accountSid = process.env.TWILIO_ACCOUNT_SID
+const authToken = process.env.TWILIO_AUTH_TOKEN
+const client = require("twilio")(accountSid, authToken)
+const sendMessage = () => {
+  client.messages
+    .create({
+      to: "+233547996005",
+      from: "+16572557357",
+      body: "order confirmed, thanks for buying from us!!!",
+    })
+    .then((message) => console.log(message))
+}
 function updateValues(req) {
   const { products } = req.session
   const { quantity } = req.body
@@ -31,6 +43,7 @@ const getPage = (req, res, next) => {
     Total: products.reduce((acc, prod) => {
       return acc + prod.subTotal
     }, 0),
+    user: req.session.user,
   })
 }
 
@@ -59,8 +72,9 @@ const deleteFromCart = (req, res, next) => {
     }, 0),
   })
 }
+const checkOutProducts = (req) => {
+  let userId = req.session.user._id
 
-const checkOut = async (req, res, next) => {
   let products = req.session.products
     .filter((product) => product.added === true)
     .map((product) => {
@@ -71,20 +85,27 @@ const checkOut = async (req, res, next) => {
         subTotal: product.subTotal,
       }
     })
+  const orderDetails = {
+    userId: userId,
+    order: products,
+    totalPrice: products.reduce((acc, prod) => {
+      return acc + prod.subTotal
+    }, 0),
+  }
+
+  return orderDetails
+}
+const checkOut = async (req, res, next) => {
+  console.log(req.session.user)
   try {
-    const checkout = new Checkout({
-      username: "username",
-      userId: "userId",
-      order: products,
-      totalPrice: products.reduce((acc, prod) => {
-        return acc + prod.subTotal
-      }, 0),
-    })
+    const orderDetails = checkOutProducts(req)
+    const checkout = new Checkout(orderDetails)
     await checkout.save()
-    res.json({ msg: "checkout was successful" })
+    sendMessage()
+    res.json({ success: "checkout was successful" })
     console.log(checkout)
   } catch (error) {
-    res.json({ msg: "checkout was unsuccessful" })
+    res.json({ failure: "checkout was unsuccessful" })
   }
 }
 module.exports = {

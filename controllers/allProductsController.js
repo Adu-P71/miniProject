@@ -6,6 +6,7 @@ const getPage = async (req, res, next) => {
     res.render("allProducts", {
       layout: "../views/layouts/other",
       products: products,
+      user: req.session.user,
     })
     // console.log(products)
   } catch (error) {

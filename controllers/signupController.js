@@ -18,7 +18,9 @@ const handleError = (err) => {
 }
 
 const signupPage = (req, res, next) => {
-  res.render("signupPage")
+  res.render("signupPage", {
+    layout: "../views/signupPage",
+  })
 }
 
 const postHandler = async (req, res, next) => {
@@ -32,7 +34,6 @@ const postHandler = async (req, res, next) => {
     })
     res.status(200).json({ user })
   } catch (err) {
-    console.log(err)
     const errors = handleError(err)
     res.status(400).json({ errors })
   }

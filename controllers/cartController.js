@@ -1,6 +1,3 @@
-<<<<<<< HEAD:Controllers/cartController.js
-const Checkout = require("../Models/checkout.model")
-=======
 const Checkout = require("../models/checkout.model")
 const accountSid = process.env.TWILIO_ACCOUNT_SID
 const authToken = process.env.TWILIO_AUTH_TOKEN
@@ -14,7 +11,6 @@ const sendMessage = () => {
     })
     .then((message) => console.log(message))
 }
->>>>>>> auth:controllers/cartController.js
 function updateValues(req) {
   const { products } = req.session
   const { quantity } = req.body

@@ -6,7 +6,7 @@ const {
   updateCart,
   deleteFromCart,
   checkOut,
-} = require("../controllers/cartController")
+} = require("../Controllers/cartController")
 const protectCart = (req, res, next) => {
   const { user } = req.session
   if (user) {

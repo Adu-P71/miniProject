@@ -14,7 +14,9 @@ const UserSchema = new mongoose.Schema({
     required: [true, "Please enter a telephone number"],
     validate: [
       (tel) => {
-        return tel.length >= 10
+        return tel.match(
+          /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+        )
       },
       "Please enter a valid mobile phone",
     ],

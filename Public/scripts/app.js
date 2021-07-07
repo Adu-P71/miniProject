@@ -4,6 +4,7 @@ const productImage = document.querySelector(".pro-img")
 const productImages = document.querySelectorAll(".small-img-column img")
 const cartButtons = document.querySelectorAll(".addBag")
 const cartImage = document.querySelector(".cart-button")
+
 function handleCartButton(button) {
   cartImage.classList.add("bounce")
   button.classList.add("added")

@@ -21,14 +21,7 @@ form.addEventListener("submit", async (e) => {
   const email = form.email.value
   const password = form.password.value
   const telephone = telInput.getNumber()
-  if (
-    !telephone.match(
-      /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
-    )
-  ) {
-    console.log("invalid mobile")
-    return
-  }
+
   try {
     const reqObject = {
       method: "POST",

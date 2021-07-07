@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 /* .sign-in-page {
   background: url(/images/bag7.png) center no-repeat;
@@ -32,7 +33,9 @@
   text-align: center;
   font-weight: lighter;
 }
-
+.form-fields {
+  position: relative;
+}
 .sign-in-page .main-application .form-body {
   width: 310px;
   margin: auto;

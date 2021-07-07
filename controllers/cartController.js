@@ -96,12 +96,11 @@ const checkOutProducts = (req) => {
   return orderDetails
 }
 const checkOut = async (req, res, next) => {
-  console.log(req.session.user)
   try {
     const orderDetails = checkOutProducts(req)
     const checkout = new Checkout(orderDetails)
     await checkout.save()
-    sendMessage()
+    // sendMessage()
     res.json({ success: "checkout was successful" })
     console.log(checkout)
   } catch (error) {

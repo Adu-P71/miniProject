@@ -1,7 +1,7 @@
 const form = document.querySelector("form")
 const passwordError = document.querySelector(".password.error")
 const emailError = document.querySelector(".email.error")
-console.log("script has been loaded")
+
 form.addEventListener("submit", async (e) => {
   e.preventDefault()
 
@@ -21,14 +21,14 @@ form.addEventListener("submit", async (e) => {
 
     const res = await fetch("/login", reqObject)
     const data = await res.json()
-    if (data.user) {
-      console.log(data)
-      window.location = "/"
-    }
+
     if (data.errors) {
       emailError.textContent = data.errors.email
       passwordError.textContent = data.errors.password
+      return
     }
+
+    window.location = "/"
   } catch (err) {
     console.log(err)
   }

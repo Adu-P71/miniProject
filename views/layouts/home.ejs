@@ -19,8 +19,13 @@
             <ul>
               <li><a href="/">Home</a></li>
               <li><a href="/allProducts">Products</a></li>
-              <li><a href="/">Contact</a></li>
-              <li><a href="/">Account</a></li>
+              <% if (user) { %>
+              <li class="logout">Logout</li>
+              <% } else { %>
+              <li><a href="/signUp">SignUp</a></li>
+              <li><a href="/login">Login</a></li>
+
+              <% } %>
             </ul>
           </nav>
           <a href="/cart">
@@ -79,14 +84,14 @@
             <img src="/images/logo-white.png" alt="" />
             <p>Our purpose is to get ladies nice bags.</p>
           </div>
-          <div class="footer-col-3">
+          <!-- <div class="footer-col-3">
             <h3>Useful Links</h3>
             <ul>
               <li>Coupons</li>
               <li>Blog Posts</li>
               <li>Return Policy</li>
             </ul>
-          </div>
+          </div> -->
           <div class="footer-col-4">
             <h3>Follow Us</h3>
             <ul>
@@ -103,5 +108,6 @@
     </footer>
     <!-- end of footer  -->
     <script src="/scripts/app.js"></script>
+    <script src="/scripts/logout.js"></script>
   </body>
 </html>

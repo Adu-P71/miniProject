@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/auth.css" />
+    <title>Sign In</title>
+  </head>
+  <body>
+    <div class="sign-in-page">
+      <header class="header">
+        <a href="/">
+          <img src="/images/logo.png" alt="logo" />
+        </a>
+      </header>
+      <div class="main-application">
+        <!-- <header class="main-header"> -->
+        <h2>Sign in to Red Store</h2>
+
+        <!-- </header> -->
+        <div class="form-body">
+          <form action="/login" method="POST">
+            <div class="form-fields">
+              <label for="email"> Email address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-control"
+              />
+              <div class="email error"></div>
+            </div>
+            <div class="form-fields">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                class="form-control"
+              />
+              <div class="password error"></div>
+
+              <a href="/signUp">Forgot password?</a>
+            </div>
+            <div class="form-fields">
+              <button type="submit" class="submit form-control">Sign in</button>
+              <div class="loader-body">
+                <div class="loader"></div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <p class="flash-card">
+          New to Egyan? <a href="/signUp">Create an account</a>
+        </p>
+      </div>
+    </div>
+    <script src="/scripts/login.js"></script>
+  </body>
+</html>

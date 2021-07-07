@@ -1,8 +1,7 @@
 const { Router } = require("express")
 const router = Router()
 
-const { getPage } = require("../controllers/indexController")
-
-router.get("/", getPage)
+const logout = require("../controllers/logoutController")
+router.post("/", logout)
 
 module.exports = router

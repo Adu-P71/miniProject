@@ -19,6 +19,7 @@ const getPage = (req, res, next) => {
     res.render("single", {
       layout: "../views/layouts/other",
       product: product,
+      user: req.session.user,
     })
   } else res.redirect(reqUrl)
 }

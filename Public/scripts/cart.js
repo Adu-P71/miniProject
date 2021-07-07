@@ -63,7 +63,10 @@ checkout.addEventListener("click", async () => {
   try {
     const response = await fetch("/cart/checkout", { method: "POST" })
     const data = await response.json()
-    console.log(data.msg)
+    if (data.failure) {
+      window.location = "/login"
+      return
+    }
   } catch (error) {
     console.log("there was an error")
   }

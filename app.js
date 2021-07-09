@@ -4,11 +4,37 @@ const path = require("path")
 const dotenv = require("dotenv").config()
 const expressLayouts = require("express-ejs-layouts")
 const session = require("express-session")
-const { PRODUCTS, sessionObject } = require("./Middlewares/products")
-const { PORT } = process.env
-require("./Middlewares/initDB")()
+const MongoStore = require("connect-mongo")
+const { PRODUCTS } = require("./Middlewares/products")
+const {
+  SESS_NAME,
+  SESS_SECRET,
+  SESS_LIFETIME,
+  NODE_ENV,
+  PORT,
+  MONGODB_URI,
+  DB_NAME,
+} = process.env
+const connection = require("./Middlewares/initDB")
+connection()
+
 //session middleware
-app.use(session(sessionObject))
+app.use(
+  session({
+    name: SESS_NAME,
+    resave: false,
+    saveUninitialized: true,
+    secret: SESS_SECRET,
+    store: MongoStore.create({
+      dbName: DB_NAME,
+      mongoUrl: MONGODB_URI,
+      collectionName: "sessions",
+    }),
+    cookie: {
+      maxAge: parseInt(SESS_LIFETIME),
+    },
+  })
+)
 
 // MIDDLEWARES
 

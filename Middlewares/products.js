@@ -1,5 +1,4 @@
 const Product = require("../models/products.model")
-
 const PRODUCTS = async (req, res, next) => {
   if (!req.session.done) {
     try {

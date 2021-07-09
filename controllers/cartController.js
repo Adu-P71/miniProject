@@ -2,14 +2,15 @@ const Checkout = require("../models/checkout.model")
 const accountSid = process.env.TWILIO_ACCOUNT_SID
 const authToken = process.env.TWILIO_AUTH_TOKEN
 const client = require("twilio")(accountSid, authToken)
-const sendMessage = () => {
+const sendMessage = (req) => {
+  const telephone = req.session.user.telephone
   client.messages
     .create({
-      to: "+233547996005",
+      to: telephone,
       from: "+16572557357",
       body: "order confirmed, thanks for buying from us!!!",
     })
-    .then((message) => console.log(message))
+    .then((message) => console.log(message.body, telephone))
 }
 function updateValues(req) {
   const { products } = req.session
@@ -100,7 +101,8 @@ const checkOut = async (req, res, next) => {
     const orderDetails = checkOutProducts(req)
     const checkout = new Checkout(orderDetails)
     await checkout.save()
-    // sendMessage()
+    console.log(req.session.user.telephone)
+    sendMessage(req)
     res.json({ success: "checkout was successful" })
     console.log(checkout)
   } catch (error) {

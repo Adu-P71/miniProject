@@ -67,6 +67,7 @@ checkout.addEventListener("click", async () => {
       window.location = "/login"
       return
     }
+    window.location = "/"
   } catch (error) {
     console.log("there was an error")
   }

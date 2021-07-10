@@ -2,7 +2,7 @@ const { Router } = require("express")
 const router = Router()
 // const authMiddleware = require("../middlewares/authMiddleware")
 
-const signupController = require("../Controllers/signupController")
+const signupController = require("../controllers/signupController")
 
 router.get("/", signupController.signupPage)
 

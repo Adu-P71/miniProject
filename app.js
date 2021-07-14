@@ -7,8 +7,37 @@ const session = require("express-session")
 const { PRODUCTS, sessionObject } = require("./middlewares/products")
 const { PORT } = process.env
 require("./middlewares/initDB")()
+const MongoStore = require("connect-mongo")
+const { PRODUCTS } = require("./middlewares/products")
+const {
+  SESS_NAME,
+  SESS_SECRET,
+  SESS_LIFETIME,
+  NODE_ENV,
+  PORT,
+  MONGODB_URI,
+  DB_NAME,
+} = process.env
+const connection = require("./middlewares/initDB")
+connection()
+
 //session middleware
-app.use(session(sessionObject))
+app.use(
+  session({
+    name: SESS_NAME,
+    resave: false,
+    saveUninitialized: true,
+    secret: SESS_SECRET,
+    store: MongoStore.create({
+      dbName: DB_NAME,
+      mongoUrl: MONGODB_URI,
+      collectionName: "sessions",
+    }),
+    cookie: {
+      maxAge: parseInt(SESS_LIFETIME),
+    },
+  })
+)
 
 // MIDDLEWARES
 
@@ -16,7 +45,7 @@ app.use(PRODUCTS)
 app.use(expressLayouts)
 app.set("views", path.join(__dirname, "views"))
 app.set("view engine", "ejs")
-app.use(express.static("public"))
+app.use(express.static(__dirname + "/Public"))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 

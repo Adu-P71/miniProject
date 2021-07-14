@@ -161,3 +161,4 @@ const products = [
   </div>
 </section>
 MONGODB_URI = mongodb://localhost:27017
+MONGODB_URI =mongodb+srv://davidswimmer:G7LTPNiPCTa6kBm@cluster0.ygxyh.mongodb.net/?retryWrites=true&w=majority

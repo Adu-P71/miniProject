@@ -4,10 +4,7 @@ const path = require("path")
 const dotenv = require("dotenv").config()
 const expressLayouts = require("express-ejs-layouts")
 const session = require("express-session")
-<<<<<<< Updated upstream
-=======
 require("./middlewares/initDB")()
->>>>>>> Stashed changes
 const MongoStore = require("connect-mongo")
 const { PRODUCTS } = require("./middlewares/products")
 

@@ -4,10 +4,10 @@ const path = require("path")
 const dotenv = require("dotenv").config()
 const expressLayouts = require("express-ejs-layouts")
 const session = require("express-session")
-const connection = require("/middlewares/initDB")
+// const connection = require("/middlewares/initDB")
 connection()
 const MongoStore = require("connect-mongo")
-const { PRODUCTS } = require("./middlewares/products")
+const { PRODUCTS } = require("/middlewares/products")
 const {
   SESS_NAME,
   SESS_SECRET,

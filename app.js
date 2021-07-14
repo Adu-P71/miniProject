@@ -4,8 +4,6 @@ const path = require("path")
 const dotenv = require("dotenv").config()
 const expressLayouts = require("express-ejs-layouts")
 const session = require("express-session")
-const { PRODUCTS, sessionObject } = require("./middlewares/products")
-const { PORT } = process.env
 require("./middlewares/initDB")()
 const MongoStore = require("connect-mongo")
 const { PRODUCTS } = require("./middlewares/products")
@@ -18,8 +16,6 @@ const {
   MONGODB_URI,
   DB_NAME,
 } = process.env
-const connection = require("./middlewares/initDB")
-connection()
 
 //session middleware
 app.use(

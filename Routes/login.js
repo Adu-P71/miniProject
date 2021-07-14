@@ -1,9 +1,9 @@
 const { Router } = require("express")
 const router = Router()
 
-const { postHandler, getLogin } = require("../Controllers/loginController")
+const { postHandler, getLogin } = require("../controllers/loginController")
 
-const { loggedIn } = require("../Middlewares/authMiddleware")
+const { loggedIn } = require("../middlewares/authMiddleware")
 
 router.get("/", loggedIn, getLogin)
 

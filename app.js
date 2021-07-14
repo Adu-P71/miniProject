@@ -4,9 +4,9 @@ const path = require("path")
 const dotenv = require("dotenv").config()
 const expressLayouts = require("express-ejs-layouts")
 const session = require("express-session")
-const { PRODUCTS, sessionObject } = require("./Middlewares/products")
+const { PRODUCTS, sessionObject } = require("./middlewares/products")
 const { PORT } = process.env
-require("./Middlewares/initDB")()
+require("./middlewares/initDB")()
 //session middleware
 app.use(session(sessionObject))
 

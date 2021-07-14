@@ -12,20 +12,7 @@ const PRODUCTS = async (req, res, next) => {
   }
   next()
 }
-const { SESS_NAME, SESS_SECRET, SESS_LIFETIME, NODE_ENV } = process.env
-const IN_PROD = NODE_ENV === "production"
-const sessionObject = {
-  name: SESS_NAME,
-  resave: false,
-  saveUninitialized: false,
-  secret: SESS_SECRET,
-  cookie: {
-    maxAge: parseInt(SESS_LIFETIME),
-    sameSite: true,
-    secure: IN_PROD,
-  },
-}
+
 module.exports = {
   PRODUCTS,
-  sessionObject,
 }

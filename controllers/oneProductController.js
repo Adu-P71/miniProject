@@ -8,6 +8,7 @@ const addOneProduct = (req) => {
   products[productIndex].added = true
   products[productIndex].quantity = quantity
   products[productIndex].subTotal = product.price * quantity
+  req.session.cartNumber += quantity
   return product
 }
 
@@ -26,8 +27,11 @@ const getPage = (req, res, next) => {
 
 const addToCart = (req, res, next) => {
   const product = addOneProduct(req)
+  // console.log(req.session.cartNumber)
+
   res.json({
     msg: `${product.name} has been submitted to the server`,
+    cartNumber: req.session.cartNumber,
   })
 }
 module.exports = {

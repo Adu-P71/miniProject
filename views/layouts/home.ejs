@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>roBags</title>
     <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      .cartImg {
+        position: relative;
+      }
+      .cart-number {
+        /* font-weight: bold; */
+        position: absolute;
+        color: white;
+        top: -8px;
+        right: -12px;
+        border: 1px solid coral;
+        min-width: 27px;
+        height: 27px;
+        border-radius: 50%;
+        background-color: coral;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
   </head>
   <body>
     <!-- header  -->
@@ -28,7 +48,8 @@
               <% } %>
             </ul>
           </nav>
-          <a href="/cart">
+          <a class="cartImg" href="/cart">
+            <span class="cart-number">00</span>
             <img
               src="/images/cart.png"
               width="30px"

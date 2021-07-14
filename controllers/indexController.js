@@ -8,4 +8,10 @@ const getPage = (req, res, next) => {
   })
 }
 
-module.exports = { getPage }
+const getCartNumber = (req, res) => {
+  const { cartNumber } = req.session
+  res.json({
+    cartNumber,
+  })
+}
+module.exports = { getPage, getCartNumber }

@@ -26,7 +26,7 @@ SOFTWARE REQUIREMENTS
 2.Browser(Chrome, Mozilla Firefox, etc...)
 3.NodeJs(javascript runtime)--> https://nodejs.org/en/download/                 ||
 4.MongoDB(database server)  --> https://www.mongodb.com/try/download/community  ||                             
-5.Windows terminal (comes install with windows 10 or 11)                        ||    NB: if you want to run it locally
+5.Windows terminal (comes installed with windows 10 or 11)                        ||    NB: if you want to run it locally
 6.Git(Source control)       --> https://git-scm.com/downloads                   ||                                                     
 7.Heroku(Deployment)        --> https://www.heroku.com/                         ||
 

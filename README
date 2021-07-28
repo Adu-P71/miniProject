@@ -125,5 +125,5 @@ user = {               |  product = {                |    checkout = {
 
 NOTE FOR THE FUTURE
 =========================================================================================================================
-Build an admin dashboard for checking user analytics and also adding products to the databasse.
+Build an admin dashboard for checking user analytics and also adding products to the database.
 

@@ -9,9 +9,12 @@ const getPage = (req, res, next) => {
 }
 
 const getCartNumber = (req, res) => {
-  const { cartNumber } = req.session
   res.json({
-    cartNumber,
+    cartNumber: req.session.products
+      .filter((product) => product.added === true)
+      .reduce((acc, prod) => {
+        return acc + prod.quantity
+      }, 0),
   })
 }
 module.exports = { getPage, getCartNumber }

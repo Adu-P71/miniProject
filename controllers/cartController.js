@@ -72,14 +72,16 @@ const deleteFromCart = (req, res, next) => {
   let products = req.session.products.filter(
     (product) => product.added === true
   )
-  req.session.cartNumber = products.reduce((acc, prod) => {
-    return acc + prod.quantity
-  }, 0)
+  // req.session.cartNumber = products.reduce((acc, prod) => {
+  //   return acc + prod.quantity
+  // }, 0)
   res.json({
     Total: products.reduce((acc, prod) => {
       return acc + prod.subTotal
     }, 0),
-    cartNumber: req.session.cartNumber,
+    cartNumber: products.reduce((acc, prod) => {
+      return acc + prod.quantity
+    }, 0),
   })
 }
 const checkOutProducts = (req) => {

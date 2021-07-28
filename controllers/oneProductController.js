@@ -31,7 +31,11 @@ const addToCart = (req, res, next) => {
 
   res.json({
     msg: `${product.name} has been submitted to the server`,
-    cartNumber: req.session.cartNumber,
+    cartNumber: req.session.products
+      .filter((product) => product.added === true)
+      .reduce((acc, prod) => {
+        return acc + prod.quantity
+      }, 0),
   })
 }
 module.exports = {

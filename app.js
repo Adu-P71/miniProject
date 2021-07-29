@@ -7,6 +7,8 @@ const session = require("express-session")
 require("./middlewares/initDB")()
 const MongoStore = require("connect-mongo")
 const { PRODUCTS } = require("./middlewares/products")
+
+//environment variables
 const {
   SESS_NAME,
   SESS_SECRET,

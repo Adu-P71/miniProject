@@ -9,8 +9,15 @@ const MongoStore = require("connect-mongo")
 const { PRODUCTS } = require("./middlewares/products")
 
 //environment variables
-const { SESS_NAME, SESS_SECRET, SESS_LIFETIME, PORT, MONGODB_URI, DB_NAME } =
-  process.env
+const {
+  SESS_NAME,
+  SESS_SECRET,
+  SESS_LIFETIME,
+  NODE_ENV,
+  PORT,
+  MONGODB_URI,
+  DB_NAME,
+} = process.env
 
 //session middleware
 app.use(
@@ -26,6 +33,7 @@ app.use(
     }),
     cookie: {
       maxAge: parseInt(SESS_LIFETIME),
+      secure: NODE_ENV == "production",
     },
   })
 )

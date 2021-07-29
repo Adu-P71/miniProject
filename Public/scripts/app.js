@@ -4,9 +4,10 @@ const productImage = document.querySelector(".pro-img")
 const productImages = document.querySelectorAll(".small-img-column img")
 const cartButtons = document.querySelectorAll(".addBag")
 const cartImage = document.querySelector(".cart-button")
+const cartNumbe = document.querySelector(".cart-number")
 
 function handleCartButton(button) {
-  cartImage.classList.add("bounce")
+  // cartImage.classList.add("bounce")
   button.classList.add("added")
   button.disabled = true
   button.previousElementSibling.disabled = true
@@ -26,9 +27,9 @@ cartButtons.forEach((cartButton) => {
     if (cartButton.id !== 0) {
       try {
         const response = await fetch(`/bags/${cartButton.id}`, postMethod)
-        const msg = await response.json()
+        const data = await response.json()
         handleCartButton(cartButton)
-        console.log(msg.msg)
+        cartNumbe.innerHTML = data.cartNumber
       } catch (error) {
         console.log("there was an error")
       }

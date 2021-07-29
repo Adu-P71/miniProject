@@ -30,6 +30,7 @@ function deleteBag(req) {
     (product) => product._id === req.params.id
   )
   products[productIndex].added = false
+
   products[productIndex].quantity = 1
   products[productIndex].subTotal = 0
 }
@@ -53,23 +54,33 @@ const updateCart = (req, res, next) => {
   let products = req.session.products.filter(
     (product) => product.added === true
   )
-
+  req.session.cartNumber = products.reduce((acc, prod) => {
+    return acc + prod.quantity
+  }, 0)
+  // console.log(req.session.cartNumber)
   res.json({
     subTotal: product.subTotal,
     Total: products.reduce((acc, prod) => {
       return acc + prod.subTotal
     }, 0),
+    cartNumber: req.session.cartNumber,
   })
 }
 
 const deleteFromCart = (req, res, next) => {
+  deleteBag(req)
   let products = req.session.products.filter(
     (product) => product.added === true
   )
-  deleteBag(req)
+  // req.session.cartNumber = products.reduce((acc, prod) => {
+  //   return acc + prod.quantity
+  // }, 0)
   res.json({
     Total: products.reduce((acc, prod) => {
       return acc + prod.subTotal
+    }, 0),
+    cartNumber: products.reduce((acc, prod) => {
+      return acc + prod.quantity
     }, 0),
   })
 }

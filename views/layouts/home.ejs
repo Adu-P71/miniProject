@@ -4,7 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>roBags</title>
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      .cartImg {
+        position: relative;
+      }
+      .cart-number {
+        /* font-weight: bold; */
+        position: absolute;
+        color: white;
+        top: -8px;
+        right: -12px;
+        border: 1px solid coral;
+        min-width: 27px;
+        height: 27px;
+        border-radius: 50%;
+        background-color: coral;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
   </head>
   <body>
     <!-- header  -->
@@ -28,7 +48,8 @@
               <% } %>
             </ul>
           </nav>
-          <a href="/cart">
+          <a class="cartImg" href="/cart">
+            <span class="cart-number"></span>
             <img
               src="/images/cart.png"
               width="30px"
@@ -71,15 +92,15 @@
     <!-- footer  -->
     <footer>
       <div class="container">
-        <div class="row">
-          <div class="footer-col-1">
+        <!-- <div class="row"> -->
+          <!-- <div class="footer-col-1">
             <h3>Download Our App</h3>
             <p>Download App for Android and ios mobile phone.</p>
             <div class="app-logo">
               <img src="/images/play-store.png" alt="" />
               <img src="/images/app-store.png" alt="" />
             </div>
-          </div>
+          </div> -->
           <div class="footer-col-2">
             <img src="/images/logo-white.png" alt="" />
             <p>Our purpose is to get ladies nice bags.</p>
@@ -92,7 +113,7 @@
               <li>Return Policy</li>
             </ul>
           </div> -->
-          <div class="footer-col-4">
+          <!-- <div class="footer-col-4">
             <h3>Follow Us</h3>
             <ul>
               <li>Instagram</li>
@@ -102,9 +123,9 @@
             </ul>
           </div>
         </div>
-        <hr />
+        <hr /> -->
         <p class="copyright">Copyright&copy; 2021 - DAPDEV</p>
-      </div>
+      <!-- </div>s -->
     </footer>
     <!-- end of footer  -->
     <script src="./scripts/app.js"></script>

@@ -2,6 +2,7 @@ const removeButtons = document.querySelectorAll("table a")
 const updateQuantity = document.querySelectorAll("table input")
 const Total = document.querySelector("#total")
 const checkout = document.querySelector("#checkout")
+const cartNumberr = document.querySelector(".cart-number")
 
 removeButtons.forEach((btn) => {
   btn.addEventListener("click", async (e) => {
@@ -17,6 +18,7 @@ removeButtons.forEach((btn) => {
     try {
       const response = await fetch(`/cart/${btn.id}`, deleteMethod)
       const data = await response.json()
+      cartNumber.innerHTML = data.cartNumber
       Total.innerHTML = `Ghc ${data.Total}.00`
     } catch (error) {
       console.log("there was an error")
@@ -46,6 +48,7 @@ updateQuantity.forEach((input) => {
     try {
       const response = await fetch(`/cart/${id}`, putMethod)
       const data = await response.json()
+      cartNumber.innerHTML = data.cartNumber
       Total.innerHTML = `Ghc ${data.Total}.00`
       subTotal.innerHTML = `Ghc ${data.subTotal}.00`
     } catch (error) {

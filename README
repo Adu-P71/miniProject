@@ -61,7 +61,7 @@ Fetching git code to local system
 --git clone https://github.com/Adu-P71/miniProject.git
 
 3.Checkout to the development branch.
--- git checkout final
+-- git checkout main
 
 Installing dependecies
 -------------------------------------------------------------------------------------------------------------------------
